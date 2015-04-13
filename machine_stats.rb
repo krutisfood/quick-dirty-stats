@@ -14,9 +14,9 @@ module Metrics
     def load_data
       output = %x(free)
       @memory = Hash.new
-      @memory[:total] = output.split(" ")[7]
-      @memory[:used]  = output.split(" ")[8] 
-      @memory[:free]  = output.split(" ")[9]
+      @memory[:total] = output.split(" ")[7].to_f
+      @memory[:used]  = output.split(" ")[8].to_f
+      @memory[:free]  = output.split(" ")[9].to_f
     end
   
     def print
